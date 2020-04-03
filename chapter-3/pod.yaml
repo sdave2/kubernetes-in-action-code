@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: node-app
+  labels:
+    creation_method: manual
+    env: prod
+spec:
+  nodeSelector:
+    kubernetes.io/os: "linux"
+  containers:
+  - image: localhost:5000/node-app:1.0
+    name: my-node-app
+    ports:
+    - containerPort: 8080
+      protocol: TCP
